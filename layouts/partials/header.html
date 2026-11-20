@@ -5,5 +5,6 @@
     {{ range site.Menus.main }}
       <a href="{{ .URL }}"{{ if or ($cur.RelPermalink | hasPrefix .URL) }} aria-current="page"{{ end }}>{{ .Name }}</a>
     {{ end }}
+    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch between light and dark theme">Light</button>
   </nav>
 </header>
