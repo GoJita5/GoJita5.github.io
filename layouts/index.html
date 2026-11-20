@@ -1,0 +1,25 @@
+{{ define "main" }}
+<section class="intro">
+  <h1>{{ .Title }}</h1>
+  <p class="role">Mathematics student, NHSM, Algiers</p>
+  <div class="prose">{{ .Content }}</div>
+</section>
+
+<section class="block">
+  <div class="block-head"><h2>Projects</h2><a href="/projects/">All projects</a></div>
+  {{ partial "entries.html" (first 3 (where site.RegularPages "Section" "projects")) }}
+</section>
+
+<section class="block">
+  <div class="block-head"><h2>Talks</h2><a href="/talks/">All talks</a></div>
+  {{ partial "entries.html" (where site.RegularPages "Section" "talks") }}
+</section>
+
+{{ $notes := where site.RegularPages "Section" "notes" }}
+{{ if $notes }}
+<section class="block">
+  <div class="block-head"><h2>Notes</h2><a href="/notes/">All notes</a></div>
+  {{ partial "entries.html" (first 3 $notes) }}
+</section>
+{{ end }}
+{{ end }}

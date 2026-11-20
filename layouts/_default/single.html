@@ -1,0 +1,7 @@
+{{ define "main" }}
+<article class="page">
+  <h1>{{ .Title }}</h1>
+  {{ with .Params.meta }}<p class="meta">{{ . }}</p>{{ else }}{{ if not .Date.IsZero }}<p class="meta">{{ .Date.Format "2 January 2006" }}</p>{{ end }}{{ end }}
+  <div class="prose">{{ .Content }}</div>
+</article>
+{{ end }}

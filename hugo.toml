@@ -1,0 +1,40 @@
+baseURL = "https://gojita5.github.io/"
+languageCode = "en"
+title = "Touer Mohamed Elamine"
+disableKinds = ["taxonomy", "term"]
+enableRobotsTXT = true
+
+[params]
+  description = "Mathematics student at NHSM, Algiers. Projects, talks and notes."
+  email = "touermouhamad50@gmail.com"
+  github = "https://github.com/GoJita5"
+  linkedin = "https://www.linkedin.com/in/touer/"
+  location = "Algiers, Algeria"
+
+[[menus.main]]
+  name = "Projects"
+  url = "/projects/"
+  weight = 10
+[[menus.main]]
+  name = "Talks"
+  url = "/talks/"
+  weight = 20
+[[menus.main]]
+  name = "Notes"
+  url = "/notes/"
+  weight = 30
+[[menus.main]]
+  name = "CV"
+  url = "/cv/"
+  weight = 40
+
+[markup.goldmark.renderer]
+  unsafe = false
+[markup.goldmark.extensions.passthrough]
+  enable = true
+  [markup.goldmark.extensions.passthrough.delimiters]
+    block = [['\[', '\]'], ['$$', '$$']]
+    inline = [['\(', '\)']]
+[markup.highlight]
+  noClasses = false
+  style = "monokai"

@@ -1,0 +1,11 @@
+{{ define "main" }}
+<section class="page">
+  <h1>{{ .Title }}</h1>
+  {{ with .Content }}<div class="prose lead">{{ . }}</div>{{ end }}
+  {{ if .Pages }}
+    {{ partial "entries.html" .Pages }}
+  {{ else }}
+    <p class="empty">Nothing here yet.</p>
+  {{ end }}
+</section>
+{{ end }}

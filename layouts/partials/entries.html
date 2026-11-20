@@ -1,0 +1,9 @@
+<ul class="entries">
+  {{ range . }}
+  <li>
+    <a class="entry-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+    {{ with .Params.meta }}<span class="meta">{{ . }}</span>{{ else }}{{ if not .Date.IsZero }}<span class="meta">{{ .Date.Format "Jan 2006" }}</span>{{ end }}{{ end }}
+    {{ with .Description }}<p>{{ . }}</p>{{ end }}
+  </li>
+  {{ end }}
+</ul>
