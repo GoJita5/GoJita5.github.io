@@ -1,4 +1,12 @@
 {{ define "main" }}
+{{ if site.Params.soon }}
+<pre id="ascii" class="ascii" aria-hidden="true"></pre>
+<div class="soon">
+  <button type="button" id="theme-toggle" class="theme-toggle corner" aria-label="Switch between light and dark theme">Light</button>
+  <h1>{{ .Title }}</h1>
+  <p>I'll put things here soon, in sha Allah.</p>
+</div>
+{{ else }}
 <section class="intro">
   <h1>{{ .Title }}</h1>
   <p class="role">Mathematics student, NHSM, Algiers</p>
@@ -21,5 +29,6 @@
   <div class="block-head"><h2>Notes</h2><a href="/notes/">All notes</a></div>
   {{ partial "entries.html" (first 3 $notes) }}
 </section>
+{{ end }}
 {{ end }}
 {{ end }}

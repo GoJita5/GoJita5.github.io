@@ -5,6 +5,8 @@ disableKinds = ["taxonomy", "term"]
 enableRobotsTXT = true
 
 [params]
+  # Set to false to bring the full site back (also remove the "build:" blocks in content/)
+  soon = true
   description = "Mathematics student at NHSM, Algiers. Projects, talks and notes."
   email = "touermouhamad50@gmail.com"
   github = "https://github.com/GoJita5"

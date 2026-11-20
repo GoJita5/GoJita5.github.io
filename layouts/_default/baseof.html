@@ -25,20 +25,26 @@
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
+  {{ if not site.Params.soon }}
   {{ partial "header.html" . }}
   <p class="notice" role="note">This site is at an early stage and still under construction. Some pages are incomplete and things will change.</p>
+  {{ end }}
   <main id="main">
     {{ block "main" . }}{{ end }}
   </main>
-  {{ partial "footer.html" . }}
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", function () {
-      var r = document.documentElement, next = r.getAttribute("data-theme") === "light" ? "dark" : "light";
-      r.setAttribute("data-theme", next);
-      this.textContent = next === "light" ? "Dark" : "Light";
-      try { localStorage.setItem("theme", next); } catch (e) {}
-    });
-    document.getElementById("theme-toggle").textContent = document.documentElement.getAttribute("data-theme") === "light" ? "Dark" : "Light";
+  {{ if not site.Params.soon }}{{ partial "footer.html" . }}{{ end }}
+{{ if site.Params.soon }}{{ $a := resources.Get "js/ascii.js" | resources.Minify | resources.Fingerprint }}<script src="{{ $a.RelPermalink }}" defer></script>{{ end }}
+  <script>
+    var tg = document.getElementById("theme-toggle");
+    if (tg) {
+      tg.textContent = document.documentElement.getAttribute("data-theme") === "light" ? "Dark" : "Light";
+      tg.addEventListener("click", function () {
+        var r = document.documentElement, next = r.getAttribute("data-theme") === "light" ? "dark" : "light";
+        r.setAttribute("data-theme", next);
+        tg.textContent = next === "light" ? "Dark" : "Light";
+        try { localStorage.setItem("theme", next); } catch (e) {}
+      });
+    }
   </script>
 </body>
 </html>
